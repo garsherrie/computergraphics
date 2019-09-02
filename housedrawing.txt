@@ -1,0 +1,77 @@
+
+//LAB1 ON SHAPES
+
+
+
+//below are libraries needed
+#include <GL/glut.h>
+#include <Windows.h>
+#include <math.h>
+
+
+void init() {
+	glClearColor(1.0, 1.0, 1.0, 1.0);//background color is set to white
+	gluOrtho2D(-10, 20, -10, 20);//this specifies the scale used
+}
+void draw_house() {
+
+	float circle;
+	glBegin(GL_LINE_STRIP);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(0.0, 0.0, 1.0);
+
+
+
+	for (int i = -1; i < 165; i++) {
+
+		circle = i * 3.42 / 180;
+		glVertex2f(3 + 5 * cos(circle), 7 + 5 * sin(circle));
+
+	}
+
+	glEnd();
+	glFlush();
+
+	float circle2;
+	glBegin(GL_LINE_STRIP);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 1.0, 0.0);
+	for (int i = 163; i < 253; i++) {
+
+		circle2 = i * 3.42 / 180;
+		glVertex2f(13 + 2 * cos(circle2), 13 + 2 * sin(circle2));
+
+	}
+
+	glEnd();
+	glFlush();//enables fast execution of statements
+
+	float circle3;
+	glBegin(GL_LINE_STRIP);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(0.0, 0.0, 1.0);
+	for (int i = 120; i < 295; i++) {
+
+		circle3 = i * 3.42 / 180;
+		glVertex2f(12 + 1.5 * cos(circle3), 12 + 1.5 * sin(circle3));
+
+	}
+
+	glEnd();
+	glFlush();//enables fast execution of statements
+
+
+
+
+}
+void main(int arge, char** argv) {
+	glutInit(&arge, argv);
+	glutInitWindowPosition(50, 100);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("SHAPES");
+
+	glutDisplayFunc(draw_house);
+	init();
+	glutMainLoop();
+
+}
